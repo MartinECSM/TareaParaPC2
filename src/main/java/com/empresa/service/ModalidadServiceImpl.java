@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.empresa.entity.FiltroModalidad;
 import com.empresa.entity.Modalidad;
 import com.empresa.repository.ModalidadRepository;
 
@@ -23,5 +24,17 @@ public class ModalidadServiceImpl implements ModalidadService {
 	public List<Modalidad> listaModalidad() {
 		return repositorio.findAll();
 	}
+
+	@Override
+	public List<Modalidad> listaModalidadPorNombreSede(String nombre, String sede) {
+		return repositorio.listaModalidadPorNombreSede(nombre, sede);
+	}
+
+	@Override
+	public List<Modalidad> listaPorFiltro(FiltroModalidad filtro) {
+		return repositorio.listaPorFiltro(filtro);
+	}
+
+	
 
 }
